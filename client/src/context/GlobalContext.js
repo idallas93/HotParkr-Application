@@ -14,7 +14,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         email: action.email,
-        apiToken: action.token,
+        apiToken: action.apiToken,
       };
 
     default:

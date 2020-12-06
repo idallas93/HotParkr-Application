@@ -3,21 +3,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import LoginForm from "./Components/LoginForm"
+import { useGlobalContext } from "./context/GlobalContext"
 
 function App() {
-  const [state, dispatch] = useReducer ((state, action) => {
-      switch (action.type) {
-        case "GET_MESSAGE":
-          return {
-            ...state,
-            message: action.message,
-          };
-        default:
-          return state;
-      }
-    },
-    { message: undefined }
-  );
+  const [state, dispatch] = useGlobalContext()
 
   useEffect(() => {
     loadMessage();
