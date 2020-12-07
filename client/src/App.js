@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from "react";
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
-import LoginForm from "./components/LoginForm";
+import LoginForm from "./Components/LoginForm";
 import { useGlobalContext } from "./context/GlobalContext";
 
 function App() {
