@@ -10,7 +10,7 @@ function App() {
 
   useEffect(()=>{
     checkLogin();
-    loadMessage(
+    if (state.apiToken) loadMessage(
     );
   }, [state.apiToken])
 
