@@ -12,3 +12,17 @@ const Body = () => {
         </div>
     )
 }
+
+const Header = () => {
+    return (
+        <div className='header'>
+            <span className='header-title'>
+                Parkerr
+            </span>
+            <br />
+            <span className="header-text">
+                Have a dog + get a dating life
+            </span>
+        </div>
+    );
+}
