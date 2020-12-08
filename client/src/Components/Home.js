@@ -1,2 +1,14 @@
-import React, { useRef } from "react";
-import axios from "axios";
+// dev + var
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+
+const Body = () => {
+    return (
+        <div id="body">
+            <Header />
+            <Card />
+            <ContactContainer />
+        </div>
+    )
+}
