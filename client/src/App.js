@@ -10,7 +10,8 @@ function App() {
 
   useEffect(()=>{
     checkLogin();
-    loadMessage();
+    loadMessage(
+    );
   }, [state.apiToken])
 
   const checkLogin = () => {
@@ -35,7 +36,9 @@ function App() {
     }).then(({ data }) => {
       const { message } = data;
       dispatch({ type: "GET_MESSAGE", message })
-    })
+    }).catch(err => {
+      console.log(err)
+    }) 
   }
 
   const logout = () => {
