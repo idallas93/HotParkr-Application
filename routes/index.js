@@ -5,6 +5,6 @@ const apiRoutes = require("./apiRoutes");
 
 Router.use("/auth", authRoutes)
 
-Router.use("/api", passport.authenticate('jwt', { session: true }), apiRoutes)
+Router.use("/api", passport.authenticate('jwt', { session: false }), apiRoutes)
 
 module.exports = Router;
