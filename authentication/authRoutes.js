@@ -9,8 +9,8 @@ Router.post("/login", (req, res, next) => {
     if (err || !user) {
       return res.status(400).json({
         message: "Something isn't right",
-        user: user
-      })
+        user: user,
+      });
     }
     req.login(user, { session: false }, (err) => {
       if (err) {
@@ -19,16 +19,18 @@ Router.post("/login", (req, res, next) => {
       const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET);
       const { email } = user;
 
-      return res.json({ email, token })
+      return res.json({ email, token });
     });
-  })(req, res, next)
+  })(req, res, next);
 });
 
-
-
 Router.post("/signup", async (req, res) => {
-  const user = await db.User.create(req.body);
-  res.json(user);
-})
+  try {
+    const user = await db.User.create(req.body);
+    res.json(user);
+  } catch (err) {
+    res.json(err)
+  }
+});
 
 module.exports = Router;
