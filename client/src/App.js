@@ -5,6 +5,7 @@ import axios from "axios";
 import { useGlobalContext } from "./context/GlobalContext";
 import Header from "./Components/Header"
 import Home from "./pages/Home"
+import Profile from "./pages/Profile"
 import LoginForm from "./Components/LoginForm"
 
 function App() {
@@ -52,14 +53,10 @@ function App() {
   return (
     <div>
       { state.apiToken ? (
-          
-          <Router>
+        <Router>
           <Header state={state} logout={logout} />
           <Route exact path="/" component={Home} />
-          {/* <Route exact path="/" component={} />
-          <Route exact path="/" component={} />  */}
-          {/* <Footer /> */}
-
+          <Route exact path="/profile" component={Profile} />
         </Router>
       ) : <LoginForm /> }
     </div>

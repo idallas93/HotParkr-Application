@@ -7,22 +7,13 @@ function Header({ state, logout }) {
     const location = useLocation
 
     return (
-        <header className="App-header">
+        <nav className="Navbar">
             <ul className="navlinks">
                 <li className="link">
                     <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>
                 </li>
             </ul>
-            { state.apiToken ? (
-                <>
-                <p>{state.message}</p>
-                <button onClick={logout}>
-                    Logout
-                </button>
-                </>
-            ) : <LoginForm /> }
-
-        </header>
+        </nav>
     )
 }
 
