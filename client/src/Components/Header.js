@@ -1,14 +1,13 @@
 import React from "react"
 import { Link, useLocation } from "react-router-dom"
-import LoginForm from "./Components/LoginForm";
+import LoginForm from "./LoginForm";
 
-function Header() {
+function Header({ state, logout }) {
 
     const location = useLocation
 
     return (
         <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
             <ul className="navlinks">
                 <li className="link">
                     <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>Home</Link>

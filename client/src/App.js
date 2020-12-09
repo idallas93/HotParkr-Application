@@ -4,7 +4,8 @@ import './App.css';
 import axios from "axios";
 import { useGlobalContext } from "./context/GlobalContext";
 import Header from "./Components/Header"
-import Home from "./Components/pages/Home"
+import Home from "./pages/Home"
+import LoginForm from "./Components/LoginForm"
 
 function App() {
   const [state, dispatch] = useGlobalContext()
@@ -49,13 +50,21 @@ function App() {
   }
 
   return (
-    <Router>
-      <Header />
-      <Route exact path="/" component={Home} />
-      {/* <Route exact path="/" component={} />
-      <Route exact path="/" component={} />  */}
-      <Footer />
-    </Router>
+    <div>
+      { state.apiToken ? (
+          
+          <Router>
+          <Header state={state} logout={logout} />
+          <Route exact path="/" component={Home} />
+          {/* <Route exact path="/" component={} />
+          <Route exact path="/" component={} />  */}
+          {/* <Footer /> */}
+
+        </Router>
+      ) : <LoginForm /> }
+    </div>
+        
+    
   );
 }
 
