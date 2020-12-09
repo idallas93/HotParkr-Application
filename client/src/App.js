@@ -1,9 +1,10 @@
 import React, { useEffect, useReducer } from "react";
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import './App.css';
 import axios from "axios";
-import LoginForm from "./Components/LoginForm";
 import { useGlobalContext } from "./context/GlobalContext";
+import Header from "./Components/Header"
+import Home from "./Components/pages/Home"
 
 function App() {
   const [state, dispatch] = useGlobalContext()
@@ -48,21 +49,13 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        
-          { state.apiToken ? (
-            <>
-              <p>{state.message}</p>
-              <button onClick={logout}>
-                Logout
-              </button>
-            </>
-          ) : <LoginForm /> }
-
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Route exact path="/" component={Home} />
+      {/* <Route exact path="/" component={} />
+      <Route exact path="/" component={} />  */}
+      <Footer />
+    </Router>
   );
 }
 
