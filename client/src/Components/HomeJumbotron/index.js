@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import LocationSearchForm from '../LocationSearchForm'
 
 
 
@@ -12,14 +13,13 @@ function HomeJumbotron() {
   return (
     
     <Jumbotron>
-    <h1>Hello, world!</h1>
+    <h1>Find your dog park community</h1>
     <p>
-      This is a simple hero unit, a simple jumbotron-style component for calling
-      extra attention to featured content or information.
+      <Button variant="primary">Join HotParkr</Button>
     </p>
-    <p>
-      <Button variant="primary">Learn more</Button>
-    </p>
+    <div>
+      <LocationSearchForm/>
+    </div>
   </Jumbotron>
   );
 }

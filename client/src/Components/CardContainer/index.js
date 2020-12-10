@@ -2,6 +2,8 @@ import React from "react"
 import { useGlobalContext } from "../../context/GlobalContext";
 import CardGroup from 'react-bootstrap/CardGroup';
 import ParkCard from "../ParkCard";
+import "./style.css";
+
 
 
 
@@ -15,9 +17,12 @@ const CardContainer = () => {
       <CardGroup>
       <ParkCard />
       <ParkCard />
+      </CardGroup>
+      <CardGroup>
       <ParkCard />
       <ParkCard />
       </CardGroup>
+     
     </div> 
   )
 }
