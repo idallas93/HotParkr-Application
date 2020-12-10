@@ -1,32 +1,84 @@
-import React from "react";
+import Axios from "axios";
+import React, { useState } from "react";
 
-const ProfileForm = ({ isDisabled, updateUser, register, isUpdating }) => {
+const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+    gender: "",
+    preference: "",
+    age: "",
+    address: "",
+  });
+  const handleInputChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setForm({ ...form, [name]: value });
+  };
+  const register = (e) => {
+    e.preventDefault();
+    Axios.post("/auth/signup", form).then((res) => console.log(res));
+  };
   return (
     <form>
       <fieldset disabled={isDisabled}>
         <div className="form-group">
           <label>Email: </label>
-          <input type="text" required className="form-control" />
+          <input
+            type="text"
+            onChange={handleInputChange}
+            required
+            className="form-control"
+            name="email"
+          />
         </div>
         <div className="form-group">
           <label>Password: </label>
-          <input type="text" required className="form-control" />
+          <input
+            type="text"
+            onChange={handleInputChange}
+            required
+            className="form-control"
+            name="password"
+          />
         </div>
         <div className="form-group">
           <label>Confirm Password: </label>
-          <input type="text" required className="form-control" />
+          <input
+            type="text"
+            onChange={handleInputChange}
+            required
+            className="form-control"
+          />
         </div>
         <div className="form-group">
           <label>First Name: </label>
-          <input type="text" required className="form-control" />
+          <input
+            type="text"
+            onChange={handleInputChange}
+            required
+            className="form-control"
+            name="firstName"
+          />
         </div>
         <div className="form-group">
           <label>Last Name: </label>
-          <input type="text" required className="form-control" />
+          <input
+            type="text"
+            onChange={handleInputChange}
+            required
+            className="form-control"
+            name="lastName"
+          />
         </div>
         <div class="form-group">
-          <label>Sex</label>
-          <select>
+          <label>Gender</label>
+          <select name="gender" onChange={handleInputChange}>
+            <option selected disabled hidden>
+              Please select an option
+            </option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Non-Binary">Non-Binary</option>
@@ -34,14 +86,21 @@ const ProfileForm = ({ isDisabled, updateUser, register, isUpdating }) => {
         </div>
         <div class="form-group">
           <label>Preferences </label>
-          <select>
+          <select name="preference" onChange={handleInputChange}>
+            <option selected disabled hidden>
+              Please select an option
+            </option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
+            <option value="Non-Binary">Non-Binary</option>
           </select>
         </div>
         <div class="form-group">
           <label>Age range: </label>
-          <select>
+          <select name="age" onChange={handleInputChange}>
+            <option selected disabled hidden>
+              Please select an age
+            </option>
             <option value="18-21">18-21</option>
             <option value="22-25">22-25</option>
             <option value="26-30">26-30</option>
@@ -51,10 +110,16 @@ const ProfileForm = ({ isDisabled, updateUser, register, isUpdating }) => {
         </div>
         <div className="form-group">
           <label>Address:</label>
-          <input type="text" required className="form-control" />
+          <input
+            type="text"
+            required
+            className="form-control"
+            onChange={handleInputChange}
+            name="address"
+          />
         </div>
       </fieldset>
-      <button onClick={() => (isUpdating ? updateUser : register)}>
+      <button onClick={isUpdating ? updateUser : register}>
         {isUpdating ? "Update" : "Submit"}
       </button>
     </form>
