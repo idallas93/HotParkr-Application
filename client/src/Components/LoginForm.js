@@ -30,14 +30,14 @@ const LoginForm = () => {
   }
 
   return (
-    <container>
+    <div>
     <form onSubmit={handleSubmit}>
       <input type="text" placeholder="email" ref={emailRef} />
       <input type="password" placeholder="password" ref={passwordRef} />
       <button type="submit">Login</button>
     </form>
   
-    </container>
+    </div>
   )
 }
 

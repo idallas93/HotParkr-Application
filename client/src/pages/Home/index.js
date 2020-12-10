@@ -3,10 +3,7 @@ import "./style.css";
 import { useGlobalContext } from "../../context/GlobalContext";
 import LocationSearchForm from "../../Components/LocationSearchForm";
 import HomeJumbotron from "../../Components/HomeJumbotron";
-import Map from "../../Components/Map";
 import CardContainer from "../../Components/CardContainer"
-
-
 
 function Home() {
 
@@ -38,13 +35,18 @@ function Home() {
     <main>
       <div>
         <HomeJumbotron/>
-        <Map/>
       </div>
       <div>
         <LocationSearchForm/>
       </div>
-      <h2>Dog Parks Near You</h2>
-      <CardContainer />
+      { 
+        state.locationEnabled ?
+        <>
+          <h2>Dog Parks Near You</h2>
+          <CardContainer />
+        </> :
+        <h3>Geolocation Not Available</h3>
+      }
     </main>
   );
 }

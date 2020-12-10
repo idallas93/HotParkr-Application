@@ -14,7 +14,7 @@ const userSchema = new Schema({
   gender: { type: String, required: true },
   preference: { type: String, required: true },
   age: { type: String, required: true },
-  address: { type: String, required: true },
+  zipcode: { type: String, required: true },
 });
 
 userSchema.pre("save", async function (next) {
