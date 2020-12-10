@@ -1,6 +1,7 @@
 import React from "react";
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
+
 function Map() {
   const containerStyle = {
     width: '400px',
@@ -8,12 +9,12 @@ function Map() {
   };
 
   const center = {
-    lat: -3.745,
-    lng: -38.523
+    lat: 39.660355,
+    lng: -105.598137
   };
 
 
-  const token = process.env.REACT_APP_GOOGLE_KEY
+const token = process.env.REACT_APP_GOOGLE_KEY
 
 
 
