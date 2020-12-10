@@ -12,9 +12,11 @@ function Map() {
     lng: -38.523
   };
 
+  const token = process.env.GOOGLE_API;
+
   return (
     <LoadScript
-      googleMapsApiKey="AIzaSyA-AgolSeiosJ4Omj2LdGw_wgdwmUas9A8"
+      googleMapsApiKey={token}
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
@@ -30,3 +32,4 @@ function Map() {
 
 
 export default Map
+
