@@ -14,7 +14,8 @@ function Map() {
   };
 
 
-const token = process.env.REACT_APP_GOOGLE_KEY
+
+  const token = process.env.REACT_APP_GOOGLE_KEY
 
 
 

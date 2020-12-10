@@ -4,6 +4,7 @@ import { useGlobalContext } from "../../context/GlobalContext";
 import LocationSearchForm from "../../Components/LocationSearchForm";
 import HomeJumbotron from "../../Components/HomeJumbotron";
 import CardContainer from "../../Components/CardContainer"
+import Map from "../../Components/Map"
 
 function Home() {
 
@@ -35,6 +36,9 @@ function Home() {
     <main>
       <div>
         <HomeJumbotron/>
+      </div>
+      <div>
+        <Map/>
       </div>
       { 
         state.locationEnabled ?
