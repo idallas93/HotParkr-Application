@@ -17,12 +17,16 @@ function Home() {
   }
 
   useEffect(() => {
-    if (navigator.geolocation) {
+    // if user isn't logged in, get they're location
+    if (!state.apiToken) {
+      if (navigator.geolocation) {
       dispatch({ type: "ENABLE_LOCATION"})
       navigator.geolocation.getCurrentPosition(updateLocation);
     } else {
       console.log("Geolocation is not supported by this browser.")
     }
+    }
+
   }, [])
 
   return (
