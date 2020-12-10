@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import axios from "axios";
 import { useGlobalContext } from "../context/GlobalContext";
+import Map from "./Map"
 
 const LoginForm = () => {
   const emailRef = useRef();
@@ -29,11 +30,14 @@ const LoginForm = () => {
   }
 
   return (
+    <container>
     <form onSubmit={handleSubmit}>
       <input type="text" placeholder="email" ref={emailRef} />
       <input type="password" placeholder="password" ref={passwordRef} />
       <button type="submit">Login</button>
     </form>
+    <Map/>
+    </container>
   )
 }
 

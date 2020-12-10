@@ -37,7 +37,9 @@ function Header({ state, logout }) {
         </li>
       </ul>
     </nav>
+
   );
 }
 
 export default Header;
+
