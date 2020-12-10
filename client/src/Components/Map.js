@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from "react";
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 function Map() {
@@ -12,9 +12,15 @@ function Map() {
     lng: -38.523
   };
 
-  const token = process.env.GOOGLE_API;
+
+  const token = process.env.REACT_APP_GOOGLE_KEY
+
+
 
   return (
+    <div>
+      <h2> Map of Dog Parks </h2>
+      
     <LoadScript
       googleMapsApiKey={token}
     >
@@ -27,6 +33,7 @@ function Map() {
         <></>
       </GoogleMap>
     </LoadScript>
+    </div>
   )
 }
 
