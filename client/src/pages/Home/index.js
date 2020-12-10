@@ -17,8 +17,9 @@ function Home() {
       longitude: position.coords.longitude,
       latitude: position.coords.latitude
     })
-    console.log("positiion", position.coords)
   }
+
+
 
   useEffect(() => {
     // if user isn't logged in, get they're location
@@ -26,18 +27,38 @@ function Home() {
       if (navigator.geolocation) {
         dispatch({ type: "ENABLE_LOCATION"})
         navigator.geolocation.getCurrentPosition(updateLocation);
+        
       } else {
         console.log("Geolocation is not supported by this browser.")
       }
     }
-  }, [])
+    loadParkData()
+  }, [state.location])
 
-  // Grab parks info to store in cardsgit
-  // take distance in miles convert to meters
-
-
+  const loadParkData = () => {
+    // Grab parks info to store in cardsgit
+    // take distance in miles convert to meters
+    axios.get(`/api/parks/1500/40.744278/-73.897679`, {
+      headers: {
+        Authorization: `Bearer ${state.apiToken}`
+      }
+    }).then(({data}) => {
+      data.results.forEach(park => {
+        dispatch({
+          type: "ADD_PARK",
+          name: park.name,
+          latitude: park.location.lat,
+          longitude: park.location.lng,
+          rating: park.rating,
+          hasPoopBags: true, // TAKE FROM DB
+          groundType: "grass" // TAKE FROM DB
+        })
+      });
+    }).catch(err => {
+      console.log(err)
+    })
+  }
   
-  axios.get("")
 
   return (
     <main>
