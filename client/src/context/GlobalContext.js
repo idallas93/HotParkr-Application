@@ -13,6 +13,23 @@ const reducer = (state, action) => {
           latitude: action.latitude
         }
       }
+    case "ADD_PARK":
+      return {
+        ...state,
+        parks: [
+          ...state.parks,
+          {
+            name: action.name,
+            location: {
+              latitude: action.latitude,
+              longitude: action.long
+            },
+            rating: action.rating,
+            hasPoopBags: action.hasPoopBags,
+            groundType: action.groundType
+          }
+        ]
+      }
     case "SET_ZIP":
       return {
         ...state,
@@ -24,7 +41,6 @@ const reducer = (state, action) => {
         locationEnabled: true
       }
     case "LOGIN":
-      console.log(action)
       return {
         ...state,
         email: action.email,
@@ -32,7 +48,6 @@ const reducer = (state, action) => {
         zipcode: action.zipcode
       }
     case "LOGOUT":
-      console.log(action)
       return {
         ...state,
         email: "",
@@ -49,7 +64,8 @@ const GlobalProvider = (props) => {
     email: "",
     apiToken: "",
     locationEnabled: false,
-    zipcode: ""
+    zipcode: "",
+    parks: []
   })
 
   return <Provider value={[state, dispatch]} {...props} />

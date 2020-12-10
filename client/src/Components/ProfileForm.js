@@ -60,16 +60,21 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
             name="email"
           />
         </div>
-        <div className="form-group">
-          <label>Password: </label>
-          <input
-            type="password"
-            onChange={handleInputChange}
-            required
-            className="form-control"
-            name="password"
-          />
-        </div>
+        {
+          isUpdating ?
+          <div className="form-group">
+            <label>Password: </label>
+            <input
+              type="password"
+              onChange={handleInputChange}
+              required
+              className="form-control"
+              name="password"
+            />
+          </div> :
+          <></>
+        }
+        
         <div className="form-group">
           <label>Confirm Password: </label>
           <input
