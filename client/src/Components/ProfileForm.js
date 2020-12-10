@@ -1,7 +1,13 @@
 import Axios from "axios";
 import React, { useState } from "react";
+import { useGlobalContext } from "../context/GlobalContext";
+
 
 const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
+
+  const [_, dispatch] = useGlobalContext();
+
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -10,7 +16,7 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
     gender: "",
     preference: "",
     age: "",
-    address: "",
+    zipcode: "",
   });
   const handleInputChange = (e) => {
     const name = e.target.name;
@@ -19,7 +25,23 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
   };
   const register = (e) => {
     e.preventDefault();
-    Axios.post("/auth/signup", form).then((res) => console.log(res));
+    Axios.post("/auth/signup", form).then(
+      async (res) => {console.log(res)
+        alert("Registered Successfully!")
+        // log user in with the api
+        const { data } = await Axios.post("/auth/login", form);
+        // put the email and token in the state
+        const { email, token } = data;
+        const apiToken = token;
+        console.log(apiToken);
+        dispatch({ 
+          type: "LOGIN", 
+          email, 
+          apiToken: data.token });
+        localStorage.setItem("user", JSON.stringify({ email, token }));
+        window.location.replace("/")
+      }
+    );
   };
   return (
     <form>
@@ -37,7 +59,7 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
         <div className="form-group">
           <label>Password: </label>
           <input
-            type="text"
+            type="password"
             onChange={handleInputChange}
             required
             className="form-control"
@@ -47,7 +69,7 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
         <div className="form-group">
           <label>Confirm Password: </label>
           <input
-            type="text"
+            type="password"
             onChange={handleInputChange}
             required
             className="form-control"
@@ -73,10 +95,10 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
             name="lastName"
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label>Gender</label>
-          <select name="gender" onChange={handleInputChange}>
-            <option selected disabled hidden>
+          <select defaultValue="" name="gender" onChange={handleInputChange}>
+            <option value="" disabled hidden>
               Please select an option
             </option>
             <option value="Male">Male</option>
@@ -84,10 +106,10 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
             <option value="Non-Binary">Non-Binary</option>
           </select>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label>Preferences </label>
-          <select name="preference" onChange={handleInputChange}>
-            <option selected disabled hidden>
+          <select defaultValue="" name="preference" onChange={handleInputChange}>
+            <option value="" disabled hidden>
               Please select an option
             </option>
             <option value="Male">Male</option>
@@ -95,10 +117,10 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
             <option value="Non-Binary">Non-Binary</option>
           </select>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label>Age range: </label>
-          <select name="age" onChange={handleInputChange}>
-            <option selected disabled hidden>
+          <select defaultValue="" name="age" onChange={handleInputChange}>
+            <option value="" disabled hidden>
               Please select an age
             </option>
             <option value="18-21">18-21</option>
@@ -109,13 +131,13 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
           </select>
         </div>
         <div className="form-group">
-          <label>Address:</label>
+          <label>Zip-Code:</label>
           <input
             type="text"
             required
             className="form-control"
             onChange={handleInputChange}
-            name="address"
+            name="zipcode"
           />
         </div>
       </fieldset>
