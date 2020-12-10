@@ -19,4 +19,9 @@ Router.post("/User", async (req, res) => {
   res.json(user)
 })
 
+Router.put("/User", async (req, res) => {
+  const user = await db.User.updateOne({email: req.body.emailId}, req.body);
+  res.json(user);
+});
+
 module.exports = Router;
