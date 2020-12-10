@@ -17,9 +17,9 @@ Router.post("/login", (req, res, next) => {
         res.send(err);
       }
       const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET);
-      const { email } = user;
+      const { email, zipcode } = user;
 
-      return res.json({ email, token });
+      return res.json({ email, token, zipcode});
     });
   })(req, res, next);
 });
