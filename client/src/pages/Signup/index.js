@@ -4,7 +4,9 @@ import "./style.css";
 import ProfileForm from "../../Components/ProfileForm";
 function Signup() {
   const register = () => {};
-  return <ProfileForm isUpdating="false" register={register} />;
+  return (
+    <ProfileForm isUpdating={false} register={register} isDisabled={false} />
+  );
 }
 
 export default Signup;

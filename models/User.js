@@ -8,7 +8,13 @@ const userSchema = new Schema({
     required: true,
   },
 
-  password: String,
+  password: { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  sex: { type: String, required: true },
+  preference: { type: String, required: true },
+  age: { type: String, required: true },
+  address: { type: String, required: true },
 });
 
 userSchema.pre("save", async function (next) {
