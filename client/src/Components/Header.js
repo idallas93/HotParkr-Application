@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import { useGlobalContext } from "../context/GlobalContext";
-function Header({ state, logout }) {
+function Header({ logout }) {
   const location = useLocation;
   const [state, dispatch] = useGlobalContext();
   return (
@@ -17,29 +17,39 @@ function Header({ state, logout }) {
           >
             Home
           </Link>
-          <Link
-            to="/"
-            className={
-              location.pathname === "/profile" ? "nav-link active" : "nav-link"
-            }
-          >
-            Profile
-          </Link>
-          <Link
-            to="/signup"
-            className={
-              location.pathname === "/signup" ? "nav-link active" : "nav-link"
-            }
-          >
-            Sign up
-          </Link>
-          <span onClick={logout}>Logout</span>
+          {state.apiToken ? (
+            <>
+              <Link
+                to="/"
+                className={
+                  location.pathname === "/profile"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+              >
+                Profile
+              </Link>
+              <button onClick={logout}>Log out</button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/signup"
+                className={
+                  location.pathname === "/signup"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+              >
+                Sign up
+              </Link>
+              <LoginForm />
+            </>
+          )}
         </li>
       </ul>
     </nav>
-
   );
 }
 
 export default Header;
-
