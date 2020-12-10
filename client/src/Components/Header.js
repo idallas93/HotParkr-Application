@@ -2,12 +2,18 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import { useGlobalContext } from "../context/GlobalContext";
+import Nav from 'react-bootstrap/Nav';
+import Row from 'react-bootstrap/Row';
+
+
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+
 function Header({ logout }) {
   const location = useLocation;
   const [state, dispatch] = useGlobalContext();
   return (
-    <nav className="Navbar">
-      <ul className="navlinks">
+    <Nav className="Navbar">
         <li className="link">
           <Link
             to="/"
@@ -47,8 +53,7 @@ function Header({ logout }) {
             </>
           )}
         </li>
-      </ul>
-    </nav>
+    </Nav>
   );
 }
 
