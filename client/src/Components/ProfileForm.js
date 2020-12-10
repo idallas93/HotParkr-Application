@@ -33,16 +33,20 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
         // put the email and token in the state
         const { email, token } = data;
         const apiToken = token;
+        const zipcode = form.zipcode
         console.log(apiToken);
         dispatch({ 
           type: "LOGIN", 
           email, 
-          apiToken: data.token });
-        localStorage.setItem("user", JSON.stringify({ email, token }));
+          apiToken: data.token,
+          zipcode: form.zipcode
+        });
+        localStorage.setItem("user", JSON.stringify({ email, token, zipcode}));
         window.location.replace("/")
       }
     );
   };
+
   return (
     <form>
       <fieldset disabled={isDisabled}>

@@ -13,6 +13,11 @@ const reducer = (state, action) => {
           latitude: action.latitude
         }
       }
+    case "SET_ZIP":
+      return {
+        ...state,
+        zipcode: action.zip
+      }
     case "ENABLE_LOCATION":
       return {
         ...state,
@@ -23,7 +28,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         email: action.email,
-        apiToken: action.apiToken
+        apiToken: action.apiToken,
+        zipcode: action.zipcode
       }
     case "LOGOUT":
       console.log(action)
@@ -42,7 +48,8 @@ const GlobalProvider = (props) => {
     message: undefined,
     email: "",
     apiToken: "",
-    locationEnabled: false
+    locationEnabled: false,
+    zipcode: ""
   })
 
   return <Provider value={[state, dispatch]} {...props} />
