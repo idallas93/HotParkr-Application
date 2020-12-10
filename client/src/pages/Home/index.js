@@ -36,9 +36,6 @@ function Home() {
       <div>
         <HomeJumbotron/>
       </div>
-      <div>
-        <LocationSearchForm/>
-      </div>
       { 
         state.locationEnabled ?
         <>
