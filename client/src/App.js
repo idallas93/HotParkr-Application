@@ -8,6 +8,10 @@ import Home from "./pages/Home"
 import Profile from "./pages/Profile"
 import LoginForm from "./Components/LoginForm"
 
+const dotenv = require('dotenv').config()
+
+
+
 function App() {
   const [state, dispatch] = useGlobalContext()
 
