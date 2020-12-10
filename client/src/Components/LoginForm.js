@@ -36,7 +36,7 @@ const LoginForm = () => {
       <input type="password" placeholder="password" ref={passwordRef} />
       <button type="submit">Login</button>
     </form>
-    <Map/>
+  
     </container>
   )
 }
