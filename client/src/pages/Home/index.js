@@ -35,9 +35,13 @@ function Home() {
   // Grab parks info to store in cardsgit
   // take distance in miles convert to meters
 
-
-  
-  axios.get("")
+  const baseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.744278,%20-73.897679&radius=15000&type=park&keyword=dog"
+  const url = baseUrl + "&key=" + process.env.REACT_APP_GOOGLE_KEY
+  axios.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.744278,%20-73.897679&radius=15000&type=park&keyword=dog&key=AIzaSyARiixZLdzs9ezqt8-ZxkRCnZAgLnjh32w").then((res) => {
+    console.log(res)
+  }).catch(err => {
+    console.log(err)
+  })
 
   return (
     <main>

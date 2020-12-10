@@ -24,7 +24,7 @@ function Header({ logout }) {
           {state.apiToken ? (
             <>
               <Link
-                to="/"
+                to="/profile"
                 className={
                   location.pathname === "/profile"
                     ? "nav-link active"
