@@ -4,6 +4,7 @@ const ProfileForm = ({ updateUser, register, isUpdating }) => {
   return (
     <form>
       <div className="form-group">
+        <h1>{isUpdating ? "Your profile" : "Create your profile"}</h1>
         <label>Email: </label>
         <input type="text" required className="form-control" />
       </div>
