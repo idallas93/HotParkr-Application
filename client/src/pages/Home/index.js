@@ -32,7 +32,7 @@ function Home() {
     }
   }, [])
 
-  // Grab parks info to store in cards
+  // Grab parks info to store in cardsgit
   // take distance in miles convert to meters
 
 

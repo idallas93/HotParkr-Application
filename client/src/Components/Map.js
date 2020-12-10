@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 
 function Map() {
@@ -13,10 +13,17 @@ function Map() {
     lng: -105.598137
   };
 
+  const position = {
+    lat: 39.660355,
+    lng: -105.598137
+  };
 
-const token = process.env.REACT_APP_GOOGLE_KEY
+  const onLoad = marker => {
+    console.log('marker: ',  marker)
+  }
 
 
+  const token = process.env.REACT_APP_GOOGLE_KEY;
 
   return (
     <div>
@@ -30,6 +37,10 @@ const token = process.env.REACT_APP_GOOGLE_KEY
         center={center}
         zoom={10}
       >
+         <Marker
+      onLoad={onLoad}
+      position={position}
+    />
         { /* Child components, such as markers, info windows, etc. */ }
         <></>
       </GoogleMap>
