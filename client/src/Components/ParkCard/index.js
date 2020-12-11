@@ -1,9 +1,8 @@
 import React from "react";
 import "./style.css";
-import CardGroup from 'react-bootstrap/Button';
 
+function ParkCard({name, groundType, hasPoopBags, location, rating}) {
 
-function ParkCard() {
   return (
     
     <div className="card park-card">
@@ -13,13 +12,17 @@ function ParkCard() {
         alt="..."
       />
       <div className="card-body">
-        <h5 className="card-title">Park Name</h5>
+        <h5 className="card-title">{name}</h5>
         <p className="card-text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
           suscipit ut recusandae. Fugiat officiis reiciendis incidunt, odit
           quibusdam qui! Accusamus sit aut quae iusto laborum quasi corporis
           tenetur, necessitatibus cupiditate?
         </p>
+        <p><b>Ground Type: </b>{groundType}</p>
+        <p><b>Poop Bags?: </b>{hasPoopBags ? "Yes" : "No"}</p>
+        <p><b>Rating: </b>{rating}</p>
+        <p><b>Address: </b>{location.address}</p>
       </div>
     </div>
   );

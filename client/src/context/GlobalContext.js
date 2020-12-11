@@ -21,6 +21,7 @@ const reducer = (state, action) => {
           {
             name: action.name,
             location: {
+              address: action.address,
               latitude: action.latitude,
               longitude: action.long
             },
@@ -30,7 +31,7 @@ const reducer = (state, action) => {
           }
         ]
       }
-    case "SET_ZIP":
+      case "SET_ZIP":
       return {
         ...state,
         zipcode: action.zip
