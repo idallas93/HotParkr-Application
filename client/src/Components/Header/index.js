@@ -1,18 +1,25 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import LoginForm from "./LoginForm";
-import { useGlobalContext } from "../context/GlobalContext";
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import LoginForm from "../LoginForm";
+import { useGlobalContext } from "../../context/GlobalContext";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import FormControl from "react-bootstrap/FormControl";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
-import Row from 'react-bootstrap/Row';
+import "./style.css";
 
 function Header({ logout }) {
   const location = useLocation;
   const [state, dispatch] = useGlobalContext();
   return (
-    <Navbar>
-    <Nav className="Navbar">
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="#home">HotParkr</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Nav className="mr-auto">
           <Link
             to="/"
             className={
@@ -50,7 +57,8 @@ function Header({ logout }) {
               <LoginForm />
             </>
           )}
-    </Nav>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }
