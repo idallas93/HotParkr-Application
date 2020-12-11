@@ -10,17 +10,19 @@ import "./style.css";
 const CardContainer = () => {
 
   const [state, dispatch] = useGlobalContext();
+
+  // using parks info from global context, render the proper parks
+  const parks = state.parks
   
 
   return (
       <div className="card-container">
       <CardGroup>
-      <ParkCard />
-      <ParkCard />
-      </CardGroup>
-      <CardGroup>
-      <ParkCard />
-      <ParkCard />
+      {
+        parks.map(park => {
+          return<ParkCard {...park} />
+        })
+      }
       </CardGroup>
      
     </div> 

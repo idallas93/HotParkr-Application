@@ -47,9 +47,10 @@ function Home() {
         dispatch({
           type: "ADD_PARK",
           name: park.name,
-          latitude: park.location.lat,
-          longitude: park.location.lng,
+          latitude: park.geometry.location.lat,
+          longitude: park.geometry.location.lng,
           rating: park.rating,
+          address: park.vicinity,
           hasPoopBags: true, // TAKE FROM DB
           groundType: "grass" // TAKE FROM DB
         })
