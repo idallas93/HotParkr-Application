@@ -30,6 +30,7 @@ function App() {
         type: "LOGIN",
         email: user.email,
         apiToken: user.token,
+        zipcode: user.zipcode
       });
     }
   };

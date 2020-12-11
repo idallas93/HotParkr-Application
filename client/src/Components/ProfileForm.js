@@ -34,7 +34,7 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
         const { email, token } = data;
         const apiToken = token;
         const zipcode = form.zipcode
-        console.log(apiToken);
+        // console.log(apiToken);
         dispatch({ 
           type: "LOGIN", 
           email, 
@@ -62,28 +62,30 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
         </div>
         {
           isUpdating ?
-          <div className="form-group">
-            <label>Password: </label>
-            <input
-              type="password"
-              onChange={handleInputChange}
-              required
-              className="form-control"
-              name="password"
-            />
-          </div> :
-          <></>
-        }
-        
-        <div className="form-group">
-          <label>Confirm Password: </label>
+          <>
+        </> :
+          <><div className="form-group">
+          <label>Password: </label>
           <input
             type="password"
             onChange={handleInputChange}
             required
             className="form-control"
+            name="password"
           />
         </div>
+        <div className="form-group">
+        <label>Confirm Password: </label>
+        <input
+          type="password"
+          onChange={handleInputChange}
+          required
+          className="form-control"
+        />
+      </div></>
+        }
+        
+        
         <div className="form-group">
           <label>First Name: </label>
           <input

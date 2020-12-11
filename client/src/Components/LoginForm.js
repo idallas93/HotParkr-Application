@@ -21,14 +21,15 @@ const LoginForm = () => {
     // put the email and token in the state
     const { email, token, zipcode } = data;
     const apiToken = token;
-    console.log(apiToken);
+    
+    localStorage.setItem("user", JSON.stringify({ email, token, zipcode }));
+    // console.log("data", zipcode);
     dispatch({ 
       type: "LOGIN", 
       email, 
       apiToken: data.token,
-      zipcode: zipcode
+      zipcode: data.zipcode
     });
-    localStorage.setItem("user", JSON.stringify({ email, token, zipcode }));
   }
 
   return (
