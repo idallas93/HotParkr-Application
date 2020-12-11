@@ -43,12 +43,13 @@ function Home() {
         Authorization: `Bearer ${state.apiToken}`
       }
     }).then(({data}) => {
+      console.log(data)
       data.results.forEach(park => {
         dispatch({
           type: "ADD_PARK",
           name: park.name,
-          latitude: park.location.lat,
-          longitude: park.location.lng,
+          latitude: park.geometry.location.lat,
+          longitude: park.geometry.location.lng,
           rating: park.rating,
           hasPoopBags: true, // TAKE FROM DB
           groundType: "grass" // TAKE FROM DB

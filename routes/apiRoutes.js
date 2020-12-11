@@ -8,6 +8,7 @@ Router.get("/welcome", (req, res) => {
 
 Router.get("/parks/:radius/:lat/:long", (req, res) => {
   const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${req.params.lat},%20${req.params.long}&radius=${req.params.radius}&type=park&keyword=dog&key=${process.env.REACT_APP_GOOGLE_KEY}`
+  console.log(url)
   axios.get(url).then(({data}) => {
     res.json(data)
   }).catch(err => {
