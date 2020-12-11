@@ -3,12 +3,7 @@ import ReactDOM from "react-dom";
 import "./style.css";
 import ProfileForm from "../../Components/ProfileForm";
 function Signup() {
-  const register = () => {
-    
-  };
-  return (
-    <ProfileForm isUpdating={false} register={register} isDisabled={false} />
-  );
+  return <ProfileForm isUpdating={false} isDisabled={false} />;
 }
 
 export default Signup;

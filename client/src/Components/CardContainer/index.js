@@ -1,32 +1,26 @@
-import React from "react"
+import React from "react";
 import { useGlobalContext } from "../../context/GlobalContext";
-import CardGroup from 'react-bootstrap/CardGroup';
+import CardGroup from "react-bootstrap/CardGroup";
 import ParkCard from "../ParkCard";
 import "./style.css";
 
-
-
-
 const CardContainer = () => {
-
   const [state, dispatch] = useGlobalContext();
 
   // using parks info from global context, render the proper parks
-  const parks = state.parks
-  
+  const parks = state.parks;
 
   return (
-      <div className="card-container">
+    <div className="card-container">
       <CardGroup>
-      {
-        parks.map(park => {
-          return<ParkCard {...park} />
-        })
-      }
+        {parks.length > 0
+          ? parks.map((park) => {
+              return <ParkCard {...park} />;
+            })
+          : "There are no dog parks near you :("}
       </CardGroup>
-     
-    </div> 
-  )
-}
+    </div>
+  );
+};
 
-export default CardContainer
+export default CardContainer;
