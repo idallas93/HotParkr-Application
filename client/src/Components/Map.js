@@ -1,54 +1,44 @@
 import React from "react";
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-
-
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { useGlobalContext } from "../context/GlobalContext";
+require("dotenv").config();
 function Map() {
+  const [state, dispatch] = useGlobalContext();
+
   const containerStyle = {
-    width: '400px',
-    height: '400px'
+    width: "400px",
+    height: "400px",
   };
 
   const center = {
-    lat: 39.660355,
-    lng: -105.598137
+    lat: parseFloat(state.location.latitude),
+    lng: parseFloat(state.location.longitude),
   };
 
   const position = {
-    lat: 39.660355,
-    lng: -105.598137
+    lat: parseFloat(state.location.latitude),
+    lng: parseFloat(state.location.longitude),
   };
 
-  const onLoad = marker => {
-    console.log('marker: ',  marker)
-  }
-
+  const onLoad = (marker) => {
+    console.log("marker: ", marker);
+  };
 
   const token = process.env.REACT_APP_GOOGLE_KEY;
 
   return (
     <div>
       <h2> Map of Dog Parks </h2>
-      
-    <LoadScript
-      googleMapsApiKey={token}
-    >
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-      >
-         <Marker
-      onLoad={onLoad}
-      position={position}
-    />
-        { /* Child components, such as markers, info windows, etc. */ }
-        <></>
-      </GoogleMap>
-    </LoadScript>
+
+      <LoadScript googleMapsApiKey={token}>
+        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+          <Marker onLoad={onLoad} position={position} />
+          {/* Child components, such as markers, info windows, etc. */}
+          <></>
+        </GoogleMap>
+      </LoadScript>
     </div>
-  )
+  );
 }
 
-
-export default Map
-
+export default Map;

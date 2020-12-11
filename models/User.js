@@ -15,6 +15,12 @@ const userSchema = new Schema({
   preference: { type: String, required: true },
   age: { type: String, required: true },
   zipcode: { type: String, required: true },
+  parkTime: [
+    {
+      frequentPark: { type: String, required: false },
+      frequentTime: { type: String, required: false },
+    },
+  ],
 });
 
 userSchema.pre("save", async function (next) {
