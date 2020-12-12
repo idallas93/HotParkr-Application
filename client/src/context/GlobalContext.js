@@ -28,7 +28,7 @@ const reducer = (state, action) => {
             location: {
               address: action.address,
               latitude: action.latitude,
-              longitude: action.long,
+              longitude: action.longitude,
             },
             rating: action.rating,
             hasPoopBags: action.hasPoopBags,
