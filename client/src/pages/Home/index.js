@@ -58,14 +58,10 @@ function Home() {
             address: park.vicinity,
             hasPoopBags: true, // TAKE FROM DB
             groundType: "grass", // TAKE FROM DB
-          });
+          })
         });
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
+    }
   const searchParks = (e) => {
     e.preventDefault();
     const radius = radiusRef.current.value * 1609;
