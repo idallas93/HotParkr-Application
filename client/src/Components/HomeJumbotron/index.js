@@ -10,12 +10,19 @@ import dogpark from "./dogpark.png";
 
 function HomeJumbotron() {
   return (
-    <Jumbotron>
-      <img src={dogpark} alt="dogpark"className="dog-park-iamge"/>
-      <h1 className="jumbo-header">Find your dog park community</h1>
-      <p className="jumbo-paragraph">
-        <Button variant="primary">Join HotParkr</Button>
-      </p>
+    <Jumbotron id="jumbotron-home">
+      <div className="main-image">
+      <img src={dogpark} alt="dogpark"className="dog-park-iamge" style={{width: "100%"}}/>
+      <h1><span>
+        Find your dog park community 
+        </span>
+        <br/>
+        <span className="button-span">
+        <Button variant="primary" className="join-button">Join HotParkr</Button>
+        </span>
+        </h1>
+        
+      </div>
     </Jumbotron>
   );
 }

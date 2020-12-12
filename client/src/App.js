@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 
+
 const dotenv = require('dotenv').config()
 
 
@@ -59,7 +60,6 @@ function App() {
   };
 
   return (
-    <div>
       <Router>
         <Header logout={logout} />
         {state.apiToken ? (
@@ -74,7 +74,6 @@ function App() {
           </>
         )}
       </Router>
-    </div>
   );
 }
 
