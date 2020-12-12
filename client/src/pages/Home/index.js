@@ -74,10 +74,8 @@ function Home() {
   }
 
   return (
-    <main>
-      <div>
+    <main className="home-main">
         <HomeJumbotron />
-      </div>
       <form className="parkLimits">
         <label htmlFor="zip">Zip-Code:</label>
         <input
