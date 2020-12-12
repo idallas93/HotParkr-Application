@@ -40,6 +40,7 @@ function Home() {
   };
   const loadParkData = (radius, latitude, longitude) => {
     // empty parks array in global state
+    dispatch({ type: "EMPTY_PARKS"})
     // Grab parks info to store in cards
     axios
       .get(`/api/parks/${radius}/${latitude}/${longitude}`, {
