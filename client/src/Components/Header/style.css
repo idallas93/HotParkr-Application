@@ -1,0 +1,19 @@
+#brand-text {
+    font-family: 'Dekko', cursive;
+    font-size: 25px;
+}
+
+.navbar-brand {
+    font-family: 'Dekko', cursive;
+    font-size: 25px;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.header-button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
