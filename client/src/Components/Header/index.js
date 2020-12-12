@@ -58,9 +58,11 @@ function Header({ logout }) {
                     : "nav-link"
                 }
               >
+                <Button className="profile-button"  variant="outline-secondary">
                 Profile
+                </Button>
               </Link>
-              <button onClick={logout}>Log out</button>
+              <Button className="logout-button" onClick={logout} variant="outline-secondary">Log out</Button>
             </>
           ) : (
             <>

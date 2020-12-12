@@ -16,5 +16,21 @@
 .header-button {
     margin-top: 5px;
     margin-bottom: 5px;
+    height: 40px;
 }
 
+.logout-button {
+    height: 40px;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+
+}
+
+.profile-button {
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
