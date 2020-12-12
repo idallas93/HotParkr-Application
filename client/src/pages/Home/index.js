@@ -75,7 +75,7 @@ function Home() {
       <form className="parkLimits">
         <label htmlFor="zip">Zip-Code:</label>
         <input
-          placeholder={state.apiToken ? JSON.parse(localStorage.getItem("user")).zipcode : ""}
+          defaultValue={state.apiToken ? JSON.parse(localStorage.getItem("user")).zipcode : ""}
           name="zip"
           type="text"
           ref={zipRef}
