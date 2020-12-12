@@ -27,4 +27,10 @@ Router.put("/User", async (req, res) => {
   res.json(user);
 });
 
+Router.post("/userInfo", async (req, res) => {
+  const { email, firstName, lastName, gender, preference, age, zipcode } = await db.User.findOne({email: req.body.email});
+  res.json({ email, firstName, lastName, gender, preference, age, zipcode });
+});
+
+
 module.exports = Router;
