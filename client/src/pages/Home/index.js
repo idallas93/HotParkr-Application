@@ -30,6 +30,7 @@ function Home() {
       } else {
         console.log("Geolocation is not supported by this browser.");
       }
+    } else {
     }
     loadParkData(1500, start.latitude, start.longitude);
   }, [state.location]);
@@ -40,7 +41,7 @@ function Home() {
   };
   const loadParkData = (radius, latitude, longitude) => {
     // empty parks array in global state
-    dispatch({ type: "EMPTY_PARKS"})
+    dispatch({ type: "DELETE_PARKS"})
     // Grab parks info to store in cards
     axios
       .get(`/api/parks/${radius}/${latitude}/${longitude}`, {
