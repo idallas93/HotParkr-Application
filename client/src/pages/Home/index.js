@@ -39,8 +39,8 @@ function Home() {
     longitude: state.location.longitude,
   };
   const loadParkData = (radius, latitude, longitude) => {
-    // Grab parks info to store in cardsgit
-    // take distance in miles convert to meters
+    // empty parks array in global state
+    // Grab parks info to store in cards
     axios
       .get(`/api/parks/${radius}/${latitude}/${longitude}`, {
         headers: {
@@ -48,6 +48,7 @@ function Home() {
         },
       })
       .then(({ data }) => {
+        // 
         data.results.forEach((park) => {
           dispatch({
             type: "ADD_PARK",

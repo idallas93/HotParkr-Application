@@ -13,6 +13,11 @@ const reducer = (state, action) => {
           latitude: action.latitude,
         },
       };
+    case "DELETE_PARKS":
+      return {
+        ...state,
+        parks: []
+      };
     case "ADD_PARK":
       return {
         ...state,
