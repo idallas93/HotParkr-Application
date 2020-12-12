@@ -3,6 +3,7 @@ import axios from "axios";
 import { useGlobalContext } from "../../context/GlobalContext";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import zipcodes from "zipcodes"
 
 import "./style.css";
 
@@ -29,11 +30,14 @@ const LoginForm = () => {
 
     localStorage.setItem("user", JSON.stringify({ email, token, zipcode }));
     // console.log("data", zipcode);
+    const {longitude, latitude} = zipcodes.lookup(zipcode)
     dispatch({
       type: "LOGIN",
       email,
       apiToken: data.token,
       zipcode: data.zipcode,
+      longitude: longitude,
+      latitude: latitude
     });
   };
 

@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React, { useState } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
+import zipcodes from "zipcodes"
 
 
 const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
@@ -35,11 +36,14 @@ const ProfileForm = ({ isDisabled, updateUser, isUpdating }) => {
         const apiToken = token;
         const zipcode = form.zipcode
         // console.log(apiToken);
-        dispatch({ 
-          type: "LOGIN", 
-          email, 
-          apiToken: data.token,
-          zipcode: form.zipcode
+        const {longitude, latitude} = zipcodes.lookup(zipcode)
+        dispatch({
+          type: "LOGIN",
+          email: email,
+          apiToken: token,
+          zipcode: zipcode,
+          longitude: longitude,
+          latitude: latitude
         });
         localStorage.setItem("user", JSON.stringify({ email, token, zipcode}));
         window.location.replace("/")

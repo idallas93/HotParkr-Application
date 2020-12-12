@@ -32,7 +32,8 @@ function Map() {
 
       <LoadScript googleMapsApiKey={token}>
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-          <Marker onLoad={onLoad} position={position} />
+          {/* map over array of parks and return a marker for each */}
+          <Marker onLoad={onLoad} position={position} label="label"/>
           {/* Child components, such as markers, info windows, etc. */}
           <></>
         </GoogleMap>

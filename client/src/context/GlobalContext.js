@@ -52,6 +52,10 @@ const reducer = (state, action) => {
         email: action.email,
         apiToken: action.apiToken,
         zipcode: action.zipcode,
+        location: {
+          longitude: action.longitude, 
+          latitude: action.latitude
+        }
       };
     case "LOGOUT":
       return {

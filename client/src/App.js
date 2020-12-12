@@ -7,6 +7,7 @@ import Header from "./Components/Header";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
+import zipcodes from "zipcodes"
 
 
 const dotenv = require('dotenv').config()
@@ -27,11 +28,14 @@ function App() {
     // is there a user?
     if (user) {
       // put that user in the state
+      const {longitude, latitude} = zipcodes.lookup(user.zipcode)
       dispatch({
         type: "LOGIN",
         email: user.email,
         apiToken: user.token,
-        zipcode: user.zipcode
+        zipcode: user.zipcode,
+        longitude: longitude,
+        latitude: latitude
       });
     }
   };
