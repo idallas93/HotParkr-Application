@@ -14,8 +14,8 @@ const CardContainer = () => {
     <div className="card-container">
       <CardGroup>
         {parks.length > 0
-          ? parks.map((park) => {
-              return <ParkCard {...park} />;
+          ? parks.map((park, id) => {
+              return <ParkCard {...park} id={id} />;
             })
           : "There are no dog parks near you :("}
       </CardGroup>
