@@ -91,6 +91,8 @@ function Home() {
   return (
     <main className="home-main">
       <HomeJumbotron />
+      {state.apiToken ?
+      <>
       <form className="parkLimits">
         <label htmlFor="zip">Zip-Code:</label>
         <input
@@ -119,14 +121,12 @@ function Home() {
       <div className="mapContainer">
         <Map focusCard={focusCard} center={center} />
       </div>
-      {state.locationEnabled ? (
-        <>
           <h2>Dog Parks Near You</h2>
           <CardContainer />
-        </>
-      ) : (
         <h3>Geolocation Not Available</h3>
-      )}
+        </>
+        : ""
+}
     </main>
   );
 }
