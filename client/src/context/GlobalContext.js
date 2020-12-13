@@ -63,6 +63,11 @@ const reducer = (state, action) => {
         email: "",
         apiToken: "",
       };
+      case "FOCUS_PARK":
+      return {
+        ...state,
+        focusIndex: action.index,
+      };
     default:
       return state;
   }
