@@ -2,7 +2,7 @@ import React from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { useGlobalContext } from "../context/GlobalContext";
 require("dotenv").config();
-function Map() {
+function Map({ focusCard, center }) {
   const [state, dispatch] = useGlobalContext();
 
   const containerStyle = {
@@ -10,9 +10,11 @@ function Map() {
     height: "400px",
   };
 
-  const center = {
-    lat: parseFloat(state.location.latitude),
-    lng: parseFloat(state.location.longitude),
+  console.log("center", center)
+
+  const centerCoords = {
+    lat: center.latitude,
+    lng: center.longitude
   };
 
   const onLoad = (marker) => {
@@ -26,16 +28,23 @@ function Map() {
       <h2> Map of Dog Parks </h2>
 
       <LoadScript googleMapsApiKey={token}>
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+        <GoogleMap mapContainerStyle={containerStyle} center={centerCoords} zoom={10}>
           {/* map over array of parks and return a marker for each */}
-          {
-            state.parks.map(park => {
-              const position = {lat: park.location.latitude, lng: park.location.longitude}
-              console.log("location state", state.location)
-              console.log("marking park", position)
-              return <Marker onLoad={onLoad} position={position} label={park.name}/>
-            })
-          }
+          {state.parks.map((park, index) => {
+            const position = {
+              lat: park.location.latitude,
+              lng: park.location.longitude,
+            };
+            
+            return (
+              <Marker
+                onLoad={onLoad}
+                position={position}
+                label={park.name}
+                onClick={() => focusCard(index)}
+              />
+            );
+          })}
           {/* Child components, such as markers, info windows, etc. */}
           <></>
         </GoogleMap>

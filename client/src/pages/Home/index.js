@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "./style.css";
 import { useGlobalContext } from "../../context/GlobalContext";
@@ -12,6 +12,7 @@ function Home() {
   const [state, dispatch] = useGlobalContext();
   const zipRef = useRef();
   const radiusRef = useRef();
+  const [center, setCenter] = useState({});
 
   function updateLocation(position) {
     dispatch({
@@ -20,6 +21,14 @@ function Home() {
       latitude: position.coords.latitude,
     });
   }
+
+  const focusCard = (index) => {
+    console.log("cardfocus");
+    dispatch({
+      type: "FOCUS_PARK",
+      index: index,
+    });
+  };
 
   useEffect(() => {
     // if user isn't logged in, get they're location
@@ -31,17 +40,19 @@ function Home() {
         console.log("Geolocation is not supported by this browser.");
       }
     } else {
+      // user is logged in update the location in the state
+      const { latitude, longitude } = zipcodes.lookup(state.zipcode);
+      setCenter({
+        latitude: latitude,
+        longitude: longitude,
+      });
     }
-    loadParkData(1500, start.latitude, start.longitude);
+    loadParkData(1500, state.location.latitude, state.location.longitude);
   }, [state.location]);
 
-  const start = {
-    latitude: state.location.latitude,
-    longitude: state.location.longitude,
-  };
   const loadParkData = (radius, latitude, longitude) => {
     // empty parks array in global state
-    dispatch({ type: "DELETE_PARKS"})
+    dispatch({ type: "DELETE_PARKS" });
     // Grab parks info to store in cards
     axios
       .get(`/api/parks/${radius}/${latitude}/${longitude}`, {
@@ -50,7 +61,7 @@ function Home() {
         },
       })
       .then(({ data }) => {
-        // 
+        //
         data.results.forEach((park) => {
           dispatch({
             type: "ADD_PARK",
@@ -61,34 +72,52 @@ function Home() {
             address: park.vicinity,
             hasPoopBags: true, // TAKE FROM DB
             groundType: "grass", // TAKE FROM DB
-          })
+          });
         });
       })
-    }
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const searchParks = (e) => {
     e.preventDefault();
     const radius = radiusRef.current.value * 1609;
     const { latitude, longitude } = zipcodes.lookup(zipRef.current.value);
     loadParkData(radius, latitude, longitude);
-  }
+  };
+
+  console.log("home center", center)
 
   return (
     <main className="home-main">
-        <HomeJumbotron />
+      <HomeJumbotron />
       <form className="parkLimits">
         <label htmlFor="zip">Zip-Code:</label>
         <input
-          defaultValue={state.apiToken ? JSON.parse(localStorage.getItem("user")).zipcode : ""}
+          defaultValue={
+            state.apiToken
+              ? JSON.parse(localStorage.getItem("user")).zipcode
+              : ""
+          }
           name="zip"
           type="text"
           ref={zipRef}
         />
         <label htmlFor="radius">Radius:</label>
-        <input type="number" name="radius" min="0" max="30" step="0.1" ref={radiusRef} />
-        <button type="submit" onClick={searchParks}>Search</button>
+        <input
+          type="number"
+          name="radius"
+          min="0"
+          max="30"
+          step="0.1"
+          ref={radiusRef}
+        />
+        <button type="submit" onClick={searchParks}>
+          Search
+        </button>
       </form>
       <div className="mapContainer">
-        <Map />
+        <Map focusCard={focusCard} center={center} />
       </div>
       {state.locationEnabled ? (
         <>
