@@ -83,6 +83,10 @@ function Home() {
     e.preventDefault();
     const radius = radiusRef.current.value * 1609;
     const { latitude, longitude } = zipcodes.lookup(zipRef.current.value);
+    setCenter({
+      latitude: latitude,
+      longitude: longitude
+    })
     loadParkData(radius, latitude, longitude);
   };
 
