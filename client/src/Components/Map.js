@@ -40,7 +40,7 @@ function Map({ focusCard, center }) {
               <Marker
                 onLoad={onLoad}
                 position={position}
-                label={park.name}
+                label={index + 1 + ". " + park.name}
                 onClick={() => focusCard(index)}
               />
             );
