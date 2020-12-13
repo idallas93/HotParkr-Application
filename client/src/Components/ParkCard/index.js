@@ -1,11 +1,16 @@
 import React from "react";
 import "./style.css";
 
-function ParkCard({name, groundType, hasPoopBags, location, rating}) {
+function ParkCard({name, groundType, hasPoopBags, location, rating, id}) {
 
   return (
     
     <div className="card park-card">
+
+      <h3 >
+      {id + 1}
+      </h3>
+
       <img
         src="https://media.gettyimages.com/photos/empty-bench-in-green-park-and-sky-with-sun-light-green-park-outdoor-picture-id1137437560"
         className="card-img-top"
