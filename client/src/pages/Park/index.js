@@ -37,7 +37,7 @@ function Park({}) {
       groundType: groundTypeRef.current.value,
       review: reviewRef.current.value,
     };
-    console.log(newReview);
+
     axios
       .post("/api/park", newReview, {
         headers: {
