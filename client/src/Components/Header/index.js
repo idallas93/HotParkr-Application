@@ -10,6 +10,8 @@ import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
+import navlogo from "./navlogo.png";
+
 
 import "./style.css";
 
@@ -20,7 +22,7 @@ function Header({ logout }) {
     <Navbar id="brand-text" bg="light" expand="lg">
       <Navbar.Brand  href="#home">
       <Image
-        src="./image0.png"
+        src={navlogo}
         width="40"
         height="40"
         className="d-inline-block align-top"
