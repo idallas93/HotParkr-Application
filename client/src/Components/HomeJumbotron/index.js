@@ -17,11 +17,10 @@ function HomeJumbotron() {
   return (
     <Jumbotron id="jumbotron-home">
       <div className="main-image">
-      <img src={dogpark} alt="dogpark"className="dog-park-iamge" style={{width: "100%"}}/>
-      <h1><span>
-        Find your dog park community 
+      <img src={dogpark} alt="dogpark"className="dog-park-image" style={{width: "100%"}} />
+      <div className="jumbo-content"><span>
+        <p className="community-text">Find your dog park community </p>
         </span>
-        <br/>
         <span className="button-span">
           { !state.apiToken ? 
           <Link
@@ -32,12 +31,12 @@ function HomeJumbotron() {
               ? "nav-link active"
               : "nav-link"
           }> 
-        <Button variant="primary" className="join-button">Join HotParkr</Button>
+        <Button variant="secondary" className="join-button" size="lg">Join HotParkr</Button>
         </Link>
         : ""
           }
         </span>
-        </h1>
+        </div>
         
       </div>
     </Jumbotron>

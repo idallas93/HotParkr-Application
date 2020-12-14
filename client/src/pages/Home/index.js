@@ -101,8 +101,6 @@ function Home() {
       {state.apiToken ?
       <>
       <div className="row" id="searchRow">
-      <h2> Search For Dog Parks In Your Area</h2>
-
         <div id="formCol" className="col">
       <LocationSearchForm searchParks={searchParks}/>
       </div>
@@ -112,9 +110,9 @@ function Home() {
         </div>
           <h2 className="nearYouHeader">Dog Parks Near You</h2>
           <CardContainer />
-          <Card.Footer>
+          <Card.Footer className="footer">
             <div className="home-footer">
-            Footer
+            HotParkr©2020
               </div>
           </Card.Footer>
         {/* <h3>Geolocation Not Available</h3> */}
