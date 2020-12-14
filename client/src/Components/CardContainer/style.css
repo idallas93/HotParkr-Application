@@ -2,3 +2,7 @@
     font-family: PalmerLakePrint-Regular;    
     src: local('PalmerLakePrint-Regular'), url ('/project-three-SKRIK/client/src/MyFontsWebfontsKit/webFonts/PalmerLakePrint-Regular') format('truetype');
   } */
+
+  .errorMessage {
+    margin-left: 10px
+  }

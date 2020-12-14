@@ -13,9 +13,9 @@ const CardContainer = () => {
     <div className="row">
         {parks.length > 0
           ? parks.map((park, id) => {
-              return <ParkCard className='col-md-3' {...park} id={id} />;
+              return <ParkCard  {...park} id={id} />;
             })
-          : "There are no dog parks near you :("}
+          : <p className="errorMessage">There are no dog parks within your defined radius, please make radius larger </p> }
     </div>
   );
 };
