@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios"
 import { useGlobalContext } from "../../context/GlobalContext";
 
-function ParkCard({ name, groundType, hasPoopBags, location, rating, id }) {
+function ParkCard({ name, imageLink, groundType, hasPoopBags, location, rating, id }) {
 
   let [cardData, setCardData] = useState({nonexistent: true})
 
@@ -46,7 +46,7 @@ function ParkCard({ name, groundType, hasPoopBags, location, rating, id }) {
         <h3>{id + 1}</h3>
 
         <img
-          src="https://media.gettyimages.com/photos/empty-bench-in-green-park-and-sky-with-sun-light-green-park-outdoor-picture-id1137437560"
+          src={imageLink}
           className="card-img-top"
           alt="..."
         />
