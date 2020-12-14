@@ -1,6 +1,6 @@
 @font-face {
     font-family: PalmerLakePrint-Regular;    
-    src: local('Rajdhani'), url ('/project-three-SKRIK/client/src/MyFontsWebfontsKit/webFonts/PalmerLakePrint-Regular') format('truetype');
+    src: local('Rajdhani'), url ('/project-three-SKRIK/client/src/fonts') format('truetype');
   }
   
 .home-main {
