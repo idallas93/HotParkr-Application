@@ -1,8 +1,15 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
+
 
 function ParkCard({ name, groundType, hasPoopBags, location, rating, id }) {
+
+  const link = `/park/${id}`
+
   return (
+    <>
+    <Link to={link}>
       <div className="card park-card">
         <h3>{id + 1}</h3>
 
@@ -37,6 +44,8 @@ function ParkCard({ name, groundType, hasPoopBags, location, rating, id }) {
           </p>
         </div>
       </div>
+    </Link>
+    </>
   );
 }
 
