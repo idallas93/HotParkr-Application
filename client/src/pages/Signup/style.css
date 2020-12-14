@@ -1,9 +1,17 @@
-/* @font-face {
-    font-family: PalmerLakePrint-Regular;    
-<<<<<<< HEAD
-    src: local('Rajdhani'), url ('/project-three-SKRIK/client/src/fonts') format('truetype');
-  }
-=======
-    src: local('Rajdhani'), url ('/project-three-SKRIK/client/src/MyFontsWebfontsKit/webFonts/PalmerLakePrint-Regular') format('truetype');
-  } */
->>>>>>> 0e831da832ba605c8552616e2349dd0324a365fa
+.submit-button {
+  background-color: #8b0000;
+}
+
+.ProfileForm {
+  margin-left: 25%;
+  margin-top: 20px;
+}
+
+* {
+  font-family: 'Shadows Into Light Two', cursive;
+
+}
+
+/* h1 {
+  margin-bottom: 30px
+} */

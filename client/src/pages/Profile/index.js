@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./style.css";
 import ProfileForm from "../../Components/ProfileForm";
+import Button from "react-bootstrap/Button";
+
 
 function Profile() {
   const [updating, setUpdating] = useState(false);
@@ -13,8 +15,10 @@ function Profile() {
 
   return (
     <main>
+      <div className="headers">
       <h1>Profile</h1>
-      <button onClick={() => setUpdating(true)}>Modify</button>
+      <Button variant="secondary"  size="lg" className="modify-button" onClick={() => setUpdating(true)}>Modify</Button>
+      </div>
       <ProfileForm
         isDisabled={!updating}
         isUpdating={true}

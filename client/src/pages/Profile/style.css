@@ -1,4 +1,17 @@
-@font-face {
-    font-family: PalmerLakePrint-Regular;    
-    src: local('Rajdhani'), url ('/project-three-SKRIK/client/src/fonts') format('truetype');
-  }
+.modify-button {
+  background-color: #8b0000;
+}
+
+.headers {
+  margin-left: 25%;
+  margin-top: 20px;
+}
+
+* {
+  font-family: 'Shadows Into Light Two', cursive;
+
+}
+
+/* h1 {
+  margin-bottom: 30px
+} */
