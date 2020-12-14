@@ -1,6 +1,5 @@
 import React from "react";
 import { useGlobalContext } from "../../context/GlobalContext";
-import CardGroup from "react-bootstrap/CardGroup";
 import ParkCard from "../ParkCard";
 import "./style.css";
 
@@ -11,14 +10,12 @@ const CardContainer = () => {
   const parks = state.parks;
 
   return (
-    <div className="card-container">
-      <CardGroup>
+    <div className="row">
         {parks.length > 0
           ? parks.map((park, id) => {
-              return <ParkCard {...park} id={id} />;
+              return <ParkCard className='col-md-3' {...park} id={id} />;
             })
           : "There are no dog parks near you :("}
-      </CardGroup>
     </div>
   );
 };
