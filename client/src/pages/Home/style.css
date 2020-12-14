@@ -6,3 +6,29 @@
 .home-main {
     width: 100%
 }
+
+#formCol {
+
+  border-style: solid;
+  border-width: 2px;
+  border-color: brown;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#searchRow {
+  margin-left: 10px;
+}
+
+h2 {
+  margin-left: 58px
+}
+
+.nearYouHeader {
+  margin-bottom: -45px
+}
+
+.home-footer{
+  margin-left: 50%;
+  margin-right: 50%
+}
