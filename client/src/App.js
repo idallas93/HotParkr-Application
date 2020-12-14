@@ -10,7 +10,6 @@ import Signup from "./pages/Signup";
 import Park from "./pages/Park"
 import zipcodes from "zipcodes"
 
-
 const dotenv = require('dotenv').config()
 
 
