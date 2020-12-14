@@ -28,7 +28,6 @@ function Park({}) {
                 }
             })
             .catch(err => console.log(err))
-        // if park doesn't exist in the collection show default info and enable user to modify
     } , [])
 
     const { id } = useParams();
@@ -79,6 +78,17 @@ function Park({}) {
                     <h2>Rating: {currentPark.rating} / 5</h2>
                     <h2>Ground Type: {currentPark.groundType}</h2>
                     <h2>Are There poop bags: {currentPark.hasPoopBags ? "Yes" : "No"}</h2>
+                    {
+                        currentPark.reviews ?
+                        <>
+                            <h2>Reviews</h2>
+                            {
+                                currentPark.reviews.map(review => <p>{review}</p>)
+                            }
+                        </>
+                        :
+                        ""
+                    }
                 </div>
                 <div className="user-info">
                     <form>
