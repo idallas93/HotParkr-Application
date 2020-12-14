@@ -28,6 +28,7 @@ function App() {
     // is there a user?
     if (user) {
       // put that user in the state
+      console.log("cats",zipcodes.lookup("10003"))
       const {longitude, latitude} = zipcodes.lookup(user.zipcode)
       dispatch({
         type: "LOGIN",
