@@ -6,10 +6,10 @@ const parkSchema = new Schema({
   hasPoopBags: { type: Boolean },
   // rating: { type: Number },
   groundType: { type: String },
-  address: { type: String },
+  address: { type: String, required: true  },
   reviews: [],
   ratings: { type: Array }
-});
+}, {toJSON: {virtuals: true}});
 
 parkSchema.virtual("rating").get(function () {
   return (this.ratings.reduce((total, rating) => {
