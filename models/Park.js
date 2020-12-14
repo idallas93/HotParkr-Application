@@ -19,7 +19,7 @@ parkSchema.virtual("rating").get(function () {
     this.ratings.reduce((total, rating) => {
       return total + parseInt(rating);
     }, 0) / this.ratings.length
-  );
+  ).toFixed(2);
 });
 
 const Park = mongoose.model("Park", parkSchema);
