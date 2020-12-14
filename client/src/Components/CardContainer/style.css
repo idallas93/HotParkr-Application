@@ -1,4 +1,9 @@
-@font-face {
+/* @font-face {
     font-family: PalmerLakePrint-Regular;    
+<<<<<<< HEAD
     src: local('PalmerLakePrint-Regular'), url ('/project-three-SKRIK/client/src/fonts') format('truetype');
   }
+=======
+    src: local('PalmerLakePrint-Regular'), url ('/project-three-SKRIK/client/src/MyFontsWebfontsKit/webFonts/PalmerLakePrint-Regular') format('truetype');
+  } */
+>>>>>>> 0e831da832ba605c8552616e2349dd0324a365fa

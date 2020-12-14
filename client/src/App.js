@@ -7,8 +7,8 @@ import Header from "./Components/Header";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
+import Park from "./pages/Park"
 import zipcodes from "zipcodes"
-
 
 const dotenv = require('dotenv').config()
 
@@ -71,6 +71,7 @@ function App() {
           <>
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
+            <Route path="/park/:id" component={Park} />
           </>
         ) : (
           <>

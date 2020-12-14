@@ -1,20 +1,27 @@
+<<<<<<< HEAD
 @font-face {
   font-family: PalmerLakePrint-Regular;    
   src: local('Rajdhani'), url ('/project-three-SKRIK/client/src/fonts') format('truetype');
 }
 
+=======
+>>>>>>> 0e831da832ba605c8552616e2349dd0324a365fa
 body { font-family: PalmerLakePrint-Regular; }
 
 .button-login{
-  margin-right: 10px;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-top: 2px;
+  height: 40px
 }
 
 #input-login{
   /* width: 100px; */
-margin-top: 19px;
-margin-right: 10px;
-
 width: 125px;
-font-size: 15px
+font-size: 15px;
+margin-right: 2px;
 }
 
+#login-form{
+  margin-top: 5px;
+}

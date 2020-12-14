@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
     font-family: PalmerLakePrint-Regular;    
     src: local('Rajdhani'), url ('/project-three-SKRIK/client/src/fonts') format('truetype');
@@ -12,15 +13,86 @@ h1{
     transform: translate(-50%, -50%);
 }
 
+=======
+>>>>>>> 0e831da832ba605c8552616e2349dd0324a365fa
 /* .dog-park-image{
     width: 100%;
     height: 25%
 } */
 
-.image-main { 
-    position: relative;
-    text-align: center;
-    color: white
- }
+.image-main {
+  position: relative;
+  text-align: center;
+  color: white;
+}
 
+.community-text {
+  font-size: 50px;
+}
 
+.jumbo-content {
+  position: absolute;
+  left: 30%;
+  top: 200px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  width: 30%;
+  padding: 10px;
+}
+
+.jumbotron {
+  background-color: white;
+  padding: 0px;
+}
+
+@media screen and (max-width: 539px) {
+    .jumbo-content {
+      top: 100px;
+      width: 50%;
+      height: 100px;
+      
+  
+    }
+
+    .community-text {
+        font-size: 15px;
+      }
+
+  }
+
+@media screen and (min-width: 540px) {
+  .jumbo-content {
+    top: 100px;
+    width: 50%;
+
+  }
+  .community-text {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 720px) {
+  .jumbo-content {
+    top: 150px;
+    width: 40%;
+  }
+
+  .community-text {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .jumbo-content {
+    width: 30%;
+  }
+
+  .community-text {
+    font-size: 40px;
+  }
+}
+
+.join-button {
+    background-color: #8b0000;
+}
