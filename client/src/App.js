@@ -9,7 +9,6 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import zipcodes from "zipcodes"
 
-
 const dotenv = require('dotenv').config()
 
 

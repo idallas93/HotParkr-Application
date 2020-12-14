@@ -22,8 +22,8 @@
 
 
 /* @import must be at top of file, otherwise CSS will not work */
-@import url("//hello.myfonts.net/count/3cd3a7");
-  
+/* @import url("//hello.myfonts.net/count/3cd3a7"); */
+/*   
 @font-face {
   font-family: 'PalmerLakeScript-Regular';
   src: url('webFonts/PalmerLakeScript-Regular/font.woff2') format('woff2'), url('webFonts/PalmerLakeScript-Regular/font.woff') format('woff');
@@ -31,5 +31,5 @@
 @font-face {
   font-family: 'PalmerLakePrint-Regular';
   src: url('webFonts/PalmerLakePrint-Regular/font.woff2') format('woff2'), url('webFonts/PalmerLakePrint-Regular/font.woff') format('woff');
-}
+} */
 
