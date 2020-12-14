@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "./style.css";
 import { useGlobalContext } from "../../context/GlobalContext";
-import LocationSearchForm from "../../Components/LocationSearchForm";
 import HomeJumbotron from "../../Components/HomeJumbotron";
 import CardContainer from "../../Components/CardContainer";
 import Map from "../../Components/Map";
 import zipcodes from "zipcodes";
+import LocationSearchForm from "../../Components/LocationSearchForm"
 
 function Home() {
   const [state, dispatch] = useGlobalContext();
@@ -79,10 +79,10 @@ function Home() {
         console.log(err);
       });
   };
-  const searchParks = (e) => {
-    e.preventDefault();
-    const radius = radiusRef.current.value * 1609;
-    const { latitude, longitude } = zipcodes.lookup(zipRef.current.value);
+  const searchParks = (radius, zipcode) => {
+    // e.preventDefault();
+    console.log("PEEEPEEEEEE", zipcodes.lookup(zipcode))
+    const { latitude, longitude } = zipcodes.lookup(zipcode);
     setCenter({
       latitude: latitude,
       longitude: longitude
@@ -97,31 +97,7 @@ function Home() {
       <HomeJumbotron />
       {state.apiToken ?
       <>
-      <form className="parkLimits">
-        <label htmlFor="zip">Zip-Code:</label>
-        <input
-          defaultValue={
-            state.apiToken
-              ? JSON.parse(localStorage.getItem("user")).zipcode
-              : ""
-          }
-          name="zip"
-          type="text"
-          ref={zipRef}
-        />
-        <label htmlFor="radius">Radius:</label>
-        <input
-          type="number"
-          name="radius"
-          min="0"
-          max="30"
-          step="0.1"
-          ref={radiusRef}
-        />
-        <button type="submit" onClick={searchParks}>
-          Search
-        </button>
-      </form>
+      <LocationSearchForm searchParks={searchParks}/>
       <div className="mapContainer">
         <Map focusCard={focusCard} center={center} />
       </div>
