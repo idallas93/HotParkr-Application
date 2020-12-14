@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import LoginForm from "../LoginForm";
@@ -19,7 +20,7 @@ function Header({ logout }) {
     <Navbar id="brand-text" bg="light" expand="lg">
       <Navbar.Brand  href="#home">
       <Image
-        src="https://iconfair.com/wp-content/uploads/2020/08/38-AiredaleDog-image-vector-icon.png"
+        src="./image0.png"
         width="40"
         height="40"
         className="d-inline-block align-top"
