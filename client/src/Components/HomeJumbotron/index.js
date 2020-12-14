@@ -18,10 +18,9 @@ function HomeJumbotron() {
     <Jumbotron id="jumbotron-home">
       <div className="main-image">
       <img src={dogpark} alt="dogpark"className="dog-park-image" style={{width: "100%"}} />
-      <div className="jumbo-content"><span>
+      <div className="jumbo-content">
         <p className="community-text">Find your dog park community </p>
-        </span>
-        <span className="button-span">
+        <div className="button-span">
           { !state.apiToken ? 
           <Link
           id="signup"
@@ -35,7 +34,7 @@ function HomeJumbotron() {
         </Link>
         : ""
           }
-        </span>
+        </div>
         </div>
         
       </div>

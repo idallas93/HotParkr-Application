@@ -10,6 +10,7 @@ body { font-family: PalmerLakePrint-Regular; }
   border-radius: 0.5rem;
   overflow: hidden;
   margin: 50px;
+  color: gray
 }
 
 .card-img-top{
