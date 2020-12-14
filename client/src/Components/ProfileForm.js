@@ -2,6 +2,12 @@ import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import zipcodes from "zipcodes";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
+import "./ProfileForm.css";
+
+
 
 const ProfileForm = ({ isDisabled, isUpdating, setUpdating }) => {
   const [state, dispatch] = useGlobalContext();
@@ -68,7 +74,7 @@ const ProfileForm = ({ isDisabled, isUpdating, setUpdating }) => {
     });
   };
   return (
-    <form>
+    <Form className="profile-form">
       <fieldset disabled={isDisabled}>
         <div className="form-group">
           <label>Email: </label>
@@ -232,10 +238,10 @@ const ProfileForm = ({ isDisabled, isUpdating, setUpdating }) => {
           />
         </div>
       </fieldset>
-      <button onClick={isUpdating ? updateUser : register}>
+      <Button variant="secondary"  size="lg" className="update-button"onClick={isUpdating ? updateUser : register}>
         {isUpdating ? "Update" : "Submit"}
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 };
 export default ProfileForm;
