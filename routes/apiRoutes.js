@@ -32,5 +32,34 @@ Router.post("/userInfo", async (req, res) => {
   res.json({ email, firstName, lastName, gender, preference, age, zipcode });
 });
 
+Router.post("/parkInfo", async (req, res) => {
+  const park = await db.Park.findOne({address: req.body.address});
+  res.json(park);
+});
+
+Router.post("/park", async (req, res) => {
+  try {
+    const park = await db.Park.findOne({address: req.body.address});
+    if (park) {
+      // const newRating = (park.ratings.reduce((a, b) => a + b, 3) + req.body.rating) / (park.ratings.length + 1)
+      const newPark = {
+        hasPoopBags: req.body.hasPoopBags,
+        groundType: req.body.groundType,
+        // rating: newRating,
+        reviews: [...park.reviews, req.body.review],
+        ratings: [ ...park.rating, req.body.rating ]
+      }
+      const updatePark = await db.Park.updateOne({address: req.body.address}, newPark);
+      res.json(updatePark);
+    }
+    else {
+      const newPark = await db.Park.create({ ...req.body, ratings:[req.body.rating] });
+      res.json(newPark);
+    }  
+  }
+  catch (err) {
+    res.json(err);
+  }
+});
 
 module.exports = Router;
