@@ -6,7 +6,10 @@ import HomeJumbotron from "../../Components/HomeJumbotron";
 import CardContainer from "../../Components/CardContainer";
 import Map from "../../Components/Map";
 import zipcodes from "zipcodes";
-import LocationSearchForm from "../../Components/LocationSearchForm"
+import LocationSearchForm from "../../Components/LocationSearchForm";
+import Card from "react-bootstrap/Card";
+
+
 
 function Home() {
   const [state, dispatch] = useGlobalContext();
@@ -97,13 +100,24 @@ function Home() {
       <HomeJumbotron />
       {state.apiToken ?
       <>
+      <div className="row" id="searchRow">
+      <h2> Search For Dog Parks In Your Area</h2>
+
+        <div id="formCol" className="col">
       <LocationSearchForm searchParks={searchParks}/>
-      <div className="mapContainer">
-        <Map focusCard={focusCard} center={center} />
       </div>
-          <h2>Dog Parks Near You</h2>
+      <div className="col">
+        <Map focusCard={focusCard} center={center} />
+        </div>
+        </div>
+          <h2 className="nearYouHeader">Dog Parks Near You</h2>
           <CardContainer />
-        <h3>Geolocation Not Available</h3>
+          <Card.Footer>
+            <div className="home-footer">
+            Footer
+              </div>
+          </Card.Footer>
+        {/* <h3>Geolocation Not Available</h3> */}
         </>
         : ""
 }

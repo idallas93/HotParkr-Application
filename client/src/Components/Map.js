@@ -25,8 +25,6 @@ function Map({ focusCard, center }) {
 
   return (
     <div>
-      <h2> Map of Dog Parks </h2>
-
       <LoadScript googleMapsApiKey={token}>
         <GoogleMap mapContainerStyle={containerStyle} center={centerCoords} zoom={10}>
           {/* map over array of parks and return a marker for each */}
