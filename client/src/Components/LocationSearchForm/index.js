@@ -21,7 +21,9 @@ function LocationSearchForm({ searchParks }) {
   };
 
   return (
-    <Form>
+    <Form className="locationSearchForm">
+          <h2 className="inYourArea"> Search For Dog Parks In Your Area</h2>
+          <br></br>
       <Form.Group>
         <label htmlFor="zip">Zip-Code:</label>
         <input
@@ -50,7 +52,7 @@ function LocationSearchForm({ searchParks }) {
         />
       </Form.Group>
 
-      <Button type="submit" onClick={searchClick}>
+      <Button variant="secondary" size="lg" className="zipCodeButton" type="submit" onClick={searchClick}>
         Search
       </Button>
     </Form>

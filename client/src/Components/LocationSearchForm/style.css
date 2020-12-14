@@ -12,3 +12,11 @@
     padding-left: 40px;
     margin-left: 15px;
 }
+
+.locationSearchForm {
+    margin-top: 95px
+}
+
+.zipCodeButton {
+    background-color: #8b0000;
+}
