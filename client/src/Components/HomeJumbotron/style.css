@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+@font-face {
+    font-family: PalmerLakePrint-Regular;    
+    src: local('Rajdhani'), url ('/project-three-SKRIK/client/src/fonts') format('truetype');
+  }
+
+body { font-family: PalmerLakePrint-Regular; }
+
+h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+=======
+>>>>>>> 0e831da832ba605c8552616e2349dd0324a365fa
 /* .dog-park-image{
     width: 100%;
     height: 25%

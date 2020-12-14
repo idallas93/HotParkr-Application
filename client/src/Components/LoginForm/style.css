@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+@font-face {
+  font-family: PalmerLakePrint-Regular;    
+  src: local('Rajdhani'), url ('/project-three-SKRIK/client/src/fonts') format('truetype');
+}
+
+=======
+>>>>>>> 0e831da832ba605c8552616e2349dd0324a365fa
 body { font-family: PalmerLakePrint-Regular; }
 
 .button-login{

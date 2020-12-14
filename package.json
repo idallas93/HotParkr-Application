@@ -25,6 +25,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "react-bootstrap": "^1.4.0"
+    "react-bootstrap": "^1.4.0",
+    "zipcodes": "^8.0.0"
   }
 }
