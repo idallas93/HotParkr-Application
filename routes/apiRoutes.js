@@ -46,8 +46,9 @@ Router.post("/park", async (req, res) => {
         hasPoopBags: req.body.hasPoopBags,
         groundType: req.body.groundType,
         // rating: newRating,
-        reviews: [...park.reviews, req.body.review],
-        ratings: [ ...park.rating, req.body.rating ]
+        $push: { reviews: [req.body.review], ratings: [req.body.rating] }
+        // reviews: [...park.reviews, req.body.review],
+        // ratings: [ ...park.rating, req.body.rating ]
       }
       const updatePark = await db.Park.updateOne({address: req.body.address}, newPark);
       res.json(updatePark);
