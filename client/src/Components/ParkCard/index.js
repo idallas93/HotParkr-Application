@@ -9,7 +9,7 @@ function ParkCard({ name, groundType, hasPoopBags, location, rating, id }) {
 
   return (
     <>
-    <Link to={link}>
+    <Link to={link} className='col-md-3'>
       <div className="card park-card">
         <h3>{id + 1}</h3>
 
