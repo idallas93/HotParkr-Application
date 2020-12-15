@@ -1,19 +1,5 @@
-<<<<<<< HEAD
-@font-face {
-    font-family: PalmerLakePrint-Regular;    
-    src: local('Rajdhani'), url ('/project-three-SKRIK/client/src/fonts') format('truetype');
-  }
+
   
-=======
-
->>>>>>> 0e831da832ba605c8552616e2349dd0324a365fa
-.home-main {
-    width: 100%;
-    font-family: 'Shadows Into Light Two', cursive;
-    background-color: #f5f5f5;
-  }
-    
-
 #formCol {
   padding: 5px;
 }
