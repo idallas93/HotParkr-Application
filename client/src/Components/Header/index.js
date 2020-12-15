@@ -20,7 +20,7 @@ function Header({ logout }) {
   const [state, dispatch] = useGlobalContext();
   return (
     <Navbar id="brand-text" bg="light" expand="lg">
-      <Navbar.Brand  href="#home">
+      <Navbar.Brand  href="/">
       <Image
         src={navlogo}
         width="50"
