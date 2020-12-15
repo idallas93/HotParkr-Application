@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGlobalContext } from "../../context/GlobalContext";
 import axios from "axios";
+import "./style.css"
 
-function Park({}) {
+function Park() {
   const ratingRef = useRef();
   const poopBagRef = useRef();
   const groundTypeRef = useRef();
@@ -79,30 +80,42 @@ function Park({}) {
     <div>
       {state.parks.length ? (
         <>
-          <div className="park-info">
+          <div className="park">
             <div className="title">
               <h1>{currentPark.name}</h1>
             </div>
-            <h2>Address: {currentPark.address}</h2>
-            <h2>Rating: {currentPark.rating} / 5</h2>
-            <h2>Ground Type: {currentPark.groundType}</h2>
-            <h2>
-              Are There poop bags: {currentPark.hasPoopBags ? "Yes" : "No"}
-            </h2>
-            {currentPark.reviews ? (
-              <>
-                <h2>Reviews</h2>
-                {currentPark.reviews.map((review) => (
-                  <p>{review}</p>
-                ))}
-              </>
-            ) : (
-              ""
-            )}
+            <div className="park-info">
+              <h2>Address: {currentPark.address}</h2>
+            </div>
+            <div className="park-info">
+              <h2>Rating: {currentPark.rating} / 5</h2>
+            </div>
+            <div className="park-info">
+              <h2>Ground Type: {currentPark.groundType}</h2>
+            </div>
+            <div className="park-info">
+              <h2>Are There poop bags: {currentPark.hasPoopBags ? "Yes" : "No"}</h2>
+            </div>
+            <div className="park-info">
+              {currentPark.reviews ? (
+                <>
+                  <h2>Reviews</h2>
+                  {currentPark.reviews.map((review) => (
+                    <p className="review">"{review}"</p>
+                  ))}
+                </>
+                ) : (
+                  ""
+                )
+              }
+            </div>
           </div>
+
           <div className="user-info">
+            <h2>Leave a Review of the park:</h2>
             <form>
-              <label htmlFor="rating">Rate the park!&nbsp;</label>
+              <div className="form-item">
+                <label htmlFor="rating">Rate the park!&nbsp;</label>
               <select ref={ratingRef} name="rating">
                 <option value={1}>1</option>
                 <option value={2}>2</option>
@@ -110,20 +123,29 @@ function Park({}) {
                 <option value={4}>4</option>
                 <option value={5}>5</option>
               </select>
-              <label htmlFor="hasPoopBags">Are there poop bags?</label>
-              <select ref={poopBagRef} name="hasPoopBags">
-                <option value={true}>Yes</option>
-                <option value={false}>No</option>
-              </select>
-              <label htmlFor="groundType">What is the ground type?</label>
-              <select ref={groundTypeRef} name="groundType">
-                <option value="Grass">Grass</option>
-                <option value="Dirt">Dirt</option>
-                <option value="Turf">Turf</option>
-                <option value="Gravel">Gravel</option>
-              </select>
-              <label htmlFor="review">Review:</label>
-              <textarea ref={reviewRef} name="review"></textarea>
+              </div>
+              <div className="form-item">
+                <label htmlFor="hasPoopBags">Are there poop bags?</label>
+                <select ref={poopBagRef} name="hasPoopBags">
+                  <option value={true}>Yes</option>
+                  <option value={false}>No</option>
+                </select>
+              </div>
+              <div className="form-item">
+                <label htmlFor="groundType">What is the ground type?</label>
+                  <select ref={groundTypeRef} name="groundType">
+                    <option value="Grass">Grass</option>
+                    <option value="Dirt">Dirt</option>
+                    <option value="Turf">Turf</option>
+                    <option value="Gravel">Gravel</option>
+                  </select>
+              </div>
+              <div className="form-item">
+                <label htmlFor="review">Write a Review:</label>
+                <br />
+                <textarea ref={reviewRef} name="review"></textarea>
+              </div>
+              <br />
               <button
                 onClick={(e) => {
                   e.preventDefault();
