@@ -2,7 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGlobalContext } from "../../context/GlobalContext";
 import axios from "axios";
-import "./style.css"
+import "./style.css";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
+import ListGroup from "react-bootstrap/ListGroup";
+import ListGroupItem from "react-bootstrap/ListGroupItem";
+
+
+
+
 
 function Park() {
   const ratingRef = useRef();
@@ -78,28 +87,33 @@ function Park() {
   };
   return (
     <div>
+      <center>
+      <h2>Additional Park Information</h2>
+      </center>
       {state.parks.length ? (
         <>
-          <div className="park">
-            <div className="title">
-              <h1>{currentPark.name}</h1>
-            </div>
-            <div className="park-info">
-              <h2>Address: {currentPark.address}</h2>
-            </div>
-            <div className="park-info">
-              <h2>Rating: {currentPark.rating} / 5</h2>
-            </div>
-            <div className="park-info">
-              <h2>Ground Type: {currentPark.groundType}</h2>
-            </div>
-            <div className="park-info">
-              <h2>Are There poop bags: {currentPark.hasPoopBags ? "Yes" : "No"}</h2>
-            </div>
-            <div className="park-info">
+        <center>
+          <Card style={{ width: '30rem' }} className="park">
+          <Card.Img variant="top" src="https://photos.bringfido.com/photo/2012/02/07/DSC01954.JPG" />
+          <Card.Body>
+              <Card.Title className="title">{currentPark.name}</Card.Title>
+              <ListGroup className="list-group-flush">     
+            <ListGroupItem className="park-info" >
+              Address - {currentPark.address}
+            </ListGroupItem>
+            <ListGroupItem className="park-info">
+              Rating - {currentPark.rating} / 5
+            </ListGroupItem>
+            <ListGroupItem className="park-info">
+               Ground Type - {currentPark.groundType}
+            </ListGroupItem>
+            <ListGroupItem className="park-info">
+              Are There poop bags? - {currentPark.hasPoopBags ? "Yes" : "No"}
+            </ListGroupItem>
+            <ListGroupItem className="park-info">
               {currentPark.reviews ? (
                 <>
-                  <h2>Reviews</h2>
+                  Reviews:
                   {currentPark.reviews.map((review) => (
                     <p className="review">"{review}"</p>
                   ))}
@@ -108,53 +122,58 @@ function Park() {
                   ""
                 )
               }
-            </div>
-          </div>
+            </ListGroupItem>
+            </ListGroup>
+            </Card.Body>
+          </Card>
+          </center>
 
           <div className="user-info">
+            <center>
             <h2>Leave a Review of the park:</h2>
-            <form>
-              <div className="form-item">
-                <label htmlFor="rating">Rate the park!&nbsp;</label>
-              <select ref={ratingRef} name="rating">
+            </center>
+            <Form className="review-form">
+              <Form.Group className="form-item">
+                <Form.Label htmlFor="rating">Rate the park!&nbsp;</Form.Label>
+              <Form.Control as ="select" ref={ratingRef} name="rating">
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
                 <option value={4}>4</option>
                 <option value={5}>5</option>
-              </select>
-              </div>
-              <div className="form-item">
-                <label htmlFor="hasPoopBags">Are there poop bags?</label>
-                <select ref={poopBagRef} name="hasPoopBags">
+                </Form.Control>              
+                </Form.Group>
+              <Form.Group className="form-item">
+                <Form.Label htmlFor="hasPoopBags">Are there poop bags?</Form.Label>
+                <Form.Control as="select" ref={poopBagRef} name="hasPoopBags">
                   <option value={true}>Yes</option>
                   <option value={false}>No</option>
-                </select>
-              </div>
-              <div className="form-item">
-                <label htmlFor="groundType">What is the ground type?</label>
-                  <select ref={groundTypeRef} name="groundType">
+                </Form.Control>
+              </Form.Group>
+              <Form.Group className="form-item">
+                <Form.Label htmlFor="groundType">What is the ground type?</Form.Label>
+                  <Form.Control as="select" ref={groundTypeRef} name="groundType">
                     <option value="Grass">Grass</option>
                     <option value="Dirt">Dirt</option>
                     <option value="Turf">Turf</option>
                     <option value="Gravel">Gravel</option>
-                  </select>
-              </div>
-              <div className="form-item">
-                <label htmlFor="review">Write a Review:</label>
-                <br />
+                  </Form.Control>
+              </Form.Group>
+              <Form.Group className="form-item" controlId="exampleForm.ControlTextarea1">
+                <Form.Label htmlFor="review">Write a Review:</Form.Label>
+                <br/>
                 <textarea ref={reviewRef} name="review"></textarea>
-              </div>
-              <br />
-              <button
+                <br/>
+              </Form.Group>
+              <Button variant="secondary"  size="lg" className="send-button "
                 onClick={(e) => {
                   e.preventDefault();
                   sendReview();
                 }}
               >
                 Send
-              </button>
-            </form>
+              </Button>
+            </Form>
           </div>
         </>
       ) : (
