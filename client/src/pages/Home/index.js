@@ -34,7 +34,7 @@ function Home() {
   };
 
   useEffect(() => {
-    // if user isn't logged in, get they're location
+    // if user isn't logged in, get their location
     if (!state.apiToken) {
       if (navigator.geolocation) {
         dispatch({ type: "ENABLE_LOCATION" });
@@ -84,7 +84,7 @@ function Home() {
   };
   const searchParks = (radius, zipcode) => {
     // e.preventDefault();
-    console.log("PEEEPEEEEEE", zipcodes.lookup(zipcode))
+    console.log("test", zipcodes.lookup(zipcode))
     const { latitude, longitude } = zipcodes.lookup(zipcode);
     setCenter({
       latitude: latitude,
