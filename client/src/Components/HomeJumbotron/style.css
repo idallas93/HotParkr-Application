@@ -33,9 +33,11 @@
 
 @media screen and (max-width: 539px) {
     .jumbo-content {
-      top: 100px;
+      top: 1rem;
       width: 50%;
       height: 100px;
+      position: relative!important;
+      margin-left: 0rem
       
   
     }
@@ -48,9 +50,11 @@
 
 @media screen and (min-width: 540px) {
   .jumbo-content {
-    top: 100px;
+    top: 1rem;
     width: 50%;
-    margin-left: 70px
+    position: relative!important;
+    margin-left: 0rem
+
 
   }
   .community-text {
@@ -59,9 +63,10 @@
 }
 @media screen and (min-width: 720px) {
   .jumbo-content {
-    top: 150px;
-    width: 40%;
-    margin-left: 100px
+    top: 1rem;
+    width: 50%;
+    position: relative!important;
+    margin-left: 0rem
 
   }
 
@@ -73,7 +78,9 @@
 @media screen and (min-width: 960px) {
   .jumbo-content {
     width: 30%;
-    margin-left: 125px
+    margin-left: 50px;
+    position: relative!important;
+
   }
 
   .community-text {
