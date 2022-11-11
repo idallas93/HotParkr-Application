@@ -29,7 +29,7 @@ const CardContainer = () => {
               const image = images[id % images.length]
               return <ParkCard imageLink={image} {...park} id={id} />;
             })
-          : <p className="errorMessage">Aw woof, there are no dog parks within your defined radius, please make radius larger </p> }
+          : <p className="errorMessage">Aw woof, there are no dog parks within your defined radius, please make radius larger! </p> }
     </div>
   );
 };
